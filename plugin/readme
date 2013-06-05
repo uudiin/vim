@@ -1,0 +1,10 @@
+
+echofunc.vim
+
+install details
+1. Put echofunc.vim to /plugin directory.
+2. Use the command below to create tags
+   file including the language and
+   signature fields.
+     ctags -R --fields=+lS . 
+

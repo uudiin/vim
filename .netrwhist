@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home'
+let g:netrw_dirhist_2='/home/administrator'
+let g:netrw_dirhist_3='/home/administrator/src'
+let g:netrw_dirhist_4='/home/administrator/src/qemu-1.4.0'
