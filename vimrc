@@ -176,7 +176,7 @@ colorscheme molokai
 syntax enable
 
 if has("gui_running")
-    "set guioptions-=m  " hide menu
+    set guioptions-=m  " hide menu
     set guioptions-=T   " hide toolbar
     set nowrap
 else
