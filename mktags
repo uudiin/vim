@@ -15,6 +15,7 @@ comm_dir="/usr/include/linux/*"
 # /usr/include/bits/
 user_dir="/usr/include/* /usr/include/sys/*"
 kern_dir="/usr/src/linux-headers-$(uname -r)/include/linux/*"
+kern_dir="${kern_dir} /usr/src/linux-headers-$(uname -r)/include/asm-generic/*"
 thrd_dir="/usr/include/netinet/* /usr/include/arpa/*"
 
 if [ "$1" == "kernel" ] ; then
