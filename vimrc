@@ -134,8 +134,10 @@ set ffs=unix,dos,mac
 if has("win32")
     set fileencoding=chinese
     set guifont=Consolas:h11:cANSI
+    set fileformats=dos,unix,mac
 else
     set fileencoding=utf-8
+    set fileformats=unix,dos,mac
 endif
 
 language message zh_CN.UTF-8
