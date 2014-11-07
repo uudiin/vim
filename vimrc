@@ -138,6 +138,8 @@ if has("win32")
 else
     set fileencoding=utf-8
     set fileformats=unix,dos,mac
+    set guifont=DejaVu\ Sans\ Mono\ 11
+    "set guifont=Consolas\ 11
 endif
 
 language message zh_CN.UTF-8
