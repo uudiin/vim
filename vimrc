@@ -134,11 +134,9 @@ set ffs=unix,dos,mac
 if has("win32")
     set fileencoding=chinese
     set guifont=Consolas:h11:cANSI
-    set fileformats=dos,unix,mac
 else
     set fileencoding=utf-8
-    set fileformats=unix,dos,mac
-    set guifont=DejaVu\ Sans\ Mono\ 11
+    set guifont=DejaVu\ Sans\ Mono\ 10
     "set guifont=Consolas\ 11
 endif
 
@@ -309,3 +307,10 @@ map <silent> <leader>run :Crun /media/Virtual/qemu/hda.img -m 256
 map <silent> <leader>setps :Cset $ps&=~(1<<8) 
 map <silent> <leader>hsig :Chandle SIGUSR1 noprint nostop
 
+" clang_complete
+let g:clang_complete_copen=1
+let g:clang_periodic_quickfix=1
+let g:clang_snippets=1
+let g:clang_close_preview=1
+let g:clang_use_library=1
+let g:clang_user_options='-stdlib=libc++ -std=c++11 -IIncludePath'
