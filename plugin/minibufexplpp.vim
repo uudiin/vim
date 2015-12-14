@@ -5,20 +5,21 @@
 " Script Info and Documentation  {{{
 "=============================================================================
 "    Copyright: Copyright (C) 2002 & 2003 Bindu Wavell 
+"    		Copyright (C) 2010 Oliver Uvman
 "               Permission is hereby granted to use and distribute this code,
 "               with or without modifications, provided that this copyright
 "               notice is copied with it. Like anything else that's free,
-"               minibufexplorer.vim is provided *as is* and comes with no
+"               minibufexplpp.vim is provided *as is* and comes with no
 "               warranty of any kind, either expressed or implied. In no
 "               event will the copyright holder be liable for any damamges
 "               resulting from the use of this software.
 "
-" Name Of File: minibufexpl.vim
-"  Description: Mini Buffer Explorer Vim Plugin
+" Name Of File: minibufexplpp.vim
+"  Description: Mini Buffer Explorer Vim Plugin Extended
 "   Maintainer: Bindu Wavell <bindu@wavell.net>
 "          URL: http://vim.sourceforge.net/scripts/script.php?script_id=159
-"  Last Change: Sunday, June 21, 2004
-"      Version: 6.3.2
+"  Last Change: Monday, November 8, 2010
+"      Version: 6.3.4
 "               Derived from Jeff Lanzarotta's bufexplorer.vim version 6.0.7
 "               Jeff can be reached at (jefflanzarotta@yahoo.com) and the
 "               original plugin can be found at:
@@ -601,6 +602,7 @@ augroup MiniBufExplorer
 autocmd MiniBufExplorer BufDelete   * call <SID>DEBUG('-=> BufDelete AutoCmd', 10) |call <SID>AutoUpdate(expand('<abuf>'))
 autocmd MiniBufExplorer BufEnter    * call <SID>DEBUG('-=> BufEnter  AutoCmd', 10) |call <SID>AutoUpdate(-1)
 autocmd MiniBufExplorer VimEnter    * call <SID>DEBUG('-=> VimEnter  AutoCmd', 10) |let g:miniBufExplorerAutoUpdate = 1 |call <SID>AutoUpdate(-1)
+augroup NONE
 " }}}
 
 " Functions
@@ -663,9 +665,17 @@ function! <SID>StartExplorer(sticky, delBufNum)
     endif
   endif
 
-  " If you press return in the -MiniBufExplorer- then try
+  " If you press return, o or e in the -MiniBufExplorer- then try
   " to open the selected buffer in the previous window.
-  nnoremap <buffer> <CR> :call <SID>MBESelectBuffer()<CR>:<BS>
+  nnoremap <buffer> <CR> :call <SID>MBESelectBuffer(0)<CR>:<BS>
+  nnoremap <buffer> o :call <SID>MBESelectBuffer(0)<CR>:<BS>
+  nnoremap <buffer> e :call <SID>MBESelectBuffer(0)<CR>:<BS>
+  " If you press s in the -MiniBufExplorer- then try
+  " to open the selected buffer in a split in the previous window.
+  nnoremap <buffer> s :call <SID>MBESelectBuffer(1)<CR>:<BS>
+  " If you press j in the -MiniBufExplorer- then try
+  " to open the selected buffer in a vertical split in the previous window.
+  nnoremap <buffer> v :call <SID>MBESelectBuffer(2)<CR>:<BS>
   " If you DoubleClick in the -MiniBufExplorer- then try
   " to open the selected buffer in the previous window.
   nnoremap <buffer> <2-LEFTMOUSE> :call <SID>MBEDoubleClick()<CR>:<BS>
@@ -686,6 +696,8 @@ function! <SID>StartExplorer(sticky, delBufNum)
   " and restores it.
   nnoremap <buffer> <TAB>   :call search('\[[0-9]*:[^\]]*\]')<CR>:<BS>
   nnoremap <buffer> <S-TAB> :call search('\[[0-9]*:[^\]]*\]','b')<CR>:<BS>
+  nnoremap <buffer> l   :call search('\[[0-9]*:[^\]]*\]')<CR>:<BS>
+  nnoremap <buffer> h :call search('\[[0-9]*:[^\]]*\]','b')<CR>:<BS>
  
   call <SID>DisplayBuffers(a:delBufNum)
 
@@ -1329,7 +1341,9 @@ endfunction
 " If we are in our explorer, then we attempt to open the buffer under the
 " cursor in the previous window.
 "
-function! <SID>MBESelectBuffer()
+" Split indicates whether to open with split, 0 no split, 1 split horizontally
+"
+function! <SID>MBESelectBuffer(split)
   call <SID>DEBUG('===========================',10)
   call <SID>DEBUG('Entering MBESelectBuffer()' ,10)
   call <SID>DEBUG('===========================',10)
@@ -1373,7 +1387,14 @@ function! <SID>MBESelectBuffer()
       endif
     endif
 
-    exec('b! '.l:bufnr)
+    if a:split == 0
+	exec('b! '.l:bufnr)
+    elseif a:split == 1
+	exec('sb! '.l:bufnr)
+    elseif a:split == 2
+	exec('vertical sb! '.l:bufnr)
+    endif
+
     if (l:resize)
       resize
     endif
@@ -1508,7 +1529,7 @@ endfunction
 "
 function! s:MBEClick()
   call <SID>DEBUG('Entering MBEClick()',10)
-  call <SID>MBESelectBuffer()
+  call <SID>MBESelectBuffer(0)
 endfunction
 
 "
@@ -1516,7 +1537,7 @@ endfunction
 "
 function! s:MBEDoubleClick()
   call <SID>DEBUG('Entering MBEDoubleClick()',10)
-  call <SID>MBESelectBuffer()
+  call <SID>MBESelectBuffer(0)
 endfunction
 
 " }}}
@@ -1642,7 +1663,18 @@ endfunc " }}}
 " MBE Script History {{{
 "=============================================================================
 "
-"      History: 6.3.2 o For some reason there was still a call to StopExplorer
+"      History:	6.3.4 o Now returns to augroup NONE after setting augroup
+"      			commands. Big thanks to Maciej Laszcz for the bug
+"      			report!
+"      		6.3.3 o Added additional keybindings. In addition to <TAB> and
+"      			<S-TAB>, l and h can now be used. In addition to <CR>,
+"      			o and e can now be used.
+"      		      o	You can open the selected buffer in a new split window 
+"      		        by pressing s while in the minibufexplorer window.
+"      		        You can open the selected buffer in a new vertically
+"      		        split window while pressing v while in the
+"      		        minibufexplorer window. Patched by Oliver Uvman.
+"      		6.3.2 o For some reason there was still a call to StopExplorer
 "                       with 2 params. Very old bug. I know I fixed before, 
 "                       any way many thanks to Jason Mills for reporting this!
 "               6.3.1 o Include folds in source so that it's easier to 
