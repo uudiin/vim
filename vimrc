@@ -133,7 +133,8 @@ set ffs=unix,dos,mac
 
 if has("win32")
     set fileencoding=chinese
-    set guifont=Consolas:h11:cANSI
+    "set guifont=Consolas:h11:cANSI
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
 else
     set fileencoding=utf-8
     set guifont=DejaVu\ Sans\ Mono\ 10
@@ -314,3 +315,6 @@ endfunction
 "let g:clang_close_preview=1
 "let g:clang_use_library=1
 "let g:clang_user_options='-stdlib=libc++ -std=c++11 -IIncludePath'
+
+" airline
+let g:airline_powerline_fonts=1
