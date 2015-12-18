@@ -134,7 +134,7 @@ set ffs=unix,dos,mac
 if has("win32")
     set fileencoding=chinese
     "set guifont=Consolas:h11:cANSI
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+    set guifont=Powerline\ Consolas:h11
 else
     set fileencoding=utf-8
     set guifont=DejaVu\ Sans\ Mono\ 10
