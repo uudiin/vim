@@ -135,6 +135,10 @@ if has("win32")
     set fileencoding=chinese
     "set guifont=Consolas:h11:cANSI
     set guifont=Powerline\ Consolas:h11
+elseif has("mac") || has("macunix") || has("gui_mac")
+    set fileencoding=utf-8
+    "set guifont=Source_Code_Pro_for_Powerline:h13
+    set guifont=Powerline\ Consolas:h15
 else
     set fileencoding=utf-8
     set guifont=DejaVu\ Sans\ Mono\ 10
