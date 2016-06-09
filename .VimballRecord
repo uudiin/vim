@@ -1,3 +1,0 @@
-supertab.vmb: call delete('/home/administrator/.vim/doc/supertab.txt')|call delete('/home/administrator/.vim/plugin/supertab.vim')
-DrawIt.vba: call delete('/home/administrator/.vim/plugin/DrawItPlugin.vim')|call delete('/home/administrator/.vim/plugin/cecutil.vim')|call delete('/home/administrator/.vim/autoload/DrawIt.vim')|call delete('/home/administrator/.vim/doc/DrawIt.txt')
-mark-2.8.0.vmb: call delete('/home/uudiin/.vim/autoload/mark.vim')|call delete('/home/uudiin/.vim/autoload/mark/palettes.vim')|call delete('/home/uudiin/.vim/plugin/mark.vim')|call delete('/home/uudiin/.vim/doc/mark.txt')
