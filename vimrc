@@ -183,8 +183,11 @@ colorscheme molokai
 syntax enable
 
 if has("gui_running")
-    set guioptions-=m  " hide menu
+    set guioptions-=m   " hide menu
     set guioptions-=T   " hide toolbar
+    set guioptions-=L   " hide left scroll bar
+    set guioptions-=r   " hide right scroll bar
+    set guioptions-=b   " hide bottom scroll bar
     set nowrap
 else
     set wrap
