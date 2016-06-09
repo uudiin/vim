@@ -258,8 +258,8 @@ let g:LookupFile_AllowNewFiles = 0
 
 
 " configure for NERDTree
-let NERDTreeIgnore=['\.\w*[^chp]$', '\..[^p]p$', '\.[^c]pp$']
-let NERDTreeWinPos = 'right'
+"let NERDTreeIgnore=['\.\w*[^chp]$', '\..[^p]p$', '\.[^c]pp$']
+let NERDTreeWinPos = 'left'
 "let NERDTreeWinSize=g:winManagerWidth
 let NERDTreeWinSize=20
 "let NERDChrismasTree=1
@@ -342,3 +342,50 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " bug on unique_tail_improved
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "let g:airline#extensions#tabline#fnamecollapse = 0
+
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
+
+" vundle
+"set nocompatible
+filetype off
+
+if has("win32")
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'mattn/emmet-vim'
+Plugin 'tomasr/molokai'
+Plugin 'ap/vim-css-color'
+Plugin 'dimasg/vim-mark'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'vim-scripts/a.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+" nerdtree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
