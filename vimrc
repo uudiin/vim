@@ -167,6 +167,7 @@ set smartindent
 set bsdir=buffer
 set autochdir
 set cursorline
+"set cursorcolumn
 set ignorecase
 
 set nobackup
@@ -362,6 +363,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -373,9 +375,19 @@ Plugin 'dimasg/vim-mark'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'vim-scripts/a.vim'
+"Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'kana/vim-textobj-indent'
+"Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on
+
+
+" gitgutter
+"let g:gitgutter_enabled = 0
+let g:gitgutter_signs = 0
 
 " nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
@@ -389,3 +401,14 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
+
+" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level=3
+"let g:indent_guides_guide_size=1
+":nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+" indentLine
+let g:indentLine_char = '┊'
+"let g:indentLine_showFirstIndentLevel = 3
+:nmap <silent> <Leader>i <Plug>IndentLinesToggle
