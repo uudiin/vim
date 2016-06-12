@@ -183,6 +183,8 @@ colorscheme molokai
 
 syntax enable
 
+set foldmethod=manual
+
 if has("gui_running")
     set guioptions-=m   " hide menu
     set guioptions-=T   " hide toolbar
@@ -217,7 +219,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Auto_Update = 1
 let Tlist_Sort_Type = "name"
 
-map <silent> <F9> :TlistToggle<cr>
+"map <silent> <F9> :TlistToggle<cr>
 
 
 " configure for netrw
@@ -326,7 +328,7 @@ endfunction
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "term"
+let g:airline_theme = "molokai"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
@@ -343,6 +345,7 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " bug on unique_tail_improved
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "let g:airline#extensions#tabline#fnamecollapse = 0
+"let g:airline#extensions#tabline#buffer_nr_show = 1
 
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
@@ -353,10 +356,11 @@ filetype off
 
 if has("win32")
     set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$VIM/vimfiles/bundle/')
 else
     set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 endif
-call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -379,7 +383,9 @@ Plugin 'vim-scripts/a.vim'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'kana/vim-textobj-indent'
 "Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
 Plugin 'Yggdroot/indentLine'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 filetype plugin indent on
@@ -412,3 +418,7 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:indentLine_char = '┊'
 "let g:indentLine_showFirstIndentLevel = 3
 :nmap <silent> <Leader>i <Plug>IndentLinesToggle
+
+" tagbar
+let g:tagbar_width = 30
+map <silent> <F9> :TagbarToggle<cr>
