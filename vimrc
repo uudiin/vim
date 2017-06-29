@@ -417,6 +417,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " indentLine
 let g:indentLine_char = '┊'
 "let g:indentLine_showFirstIndentLevel = 3
+let g:indentLine_setConceal = 0
 :nmap <silent> <Leader>i <Plug>IndentLinesToggle
 
 " tagbar
