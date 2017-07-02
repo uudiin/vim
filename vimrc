@@ -386,6 +386,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Yggdroot/indentLine'
 Plugin 'majutsushi/tagbar'
+Plugin 'leafo/moonscript-vim'
 
 call vundle#end()
 filetype plugin indent on
