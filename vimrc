@@ -350,46 +350,42 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
-" vundle
+" vim-plug
 "set nocompatible
 filetype off
 
 if has("win32")
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$VIM/vimfiles/bundle/')
+    call plug#begin('$VIM/vimfiles/bundle')
 else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call plug#begin('~/.vim/bundle')
 endif
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mattn/emmet-vim'
+Plug 'tomasr/molokai'
+Plug 'ap/vim-css-color'
+Plug 'dimasg/vim-mark'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/DrawIt'
+Plug 'vim-scripts/a.vim'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'majutsushi/tagbar'
+"Plug 'kana/vim-textobj-indent'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
+Plug 'leafo/moonscript-vim'
+Plug 'posva/vim-vue'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'mattn/emmet-vim'
-Plugin 'tomasr/molokai'
-Plugin 'ap/vim-css-color'
-Plugin 'dimasg/vim-mark'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/DrawIt'
-Plugin 'vim-scripts/a.vim'
-"Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'kana/vim-textobj-indent'
-"Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript'
-Plugin 'Yggdroot/indentLine'
-Plugin 'majutsushi/tagbar'
-Plugin 'leafo/moonscript-vim'
-Plugin 'posva/vim-vue'
-
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 
