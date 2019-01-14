@@ -283,17 +283,18 @@ let c_syntax_for_h = 1
 
 " configure for cscope
 " :help cscope-suggestions
-"if has("cscope")
-"   set csto =1
-"   set cst
-"   set nocsverb
-"   if filereadable("cscope.out")
-"       cs add cscope.out
-"   elseif $CSCOPE_DB != ""
-"       cs add $CSCOPE_DB
-"   endif
-"   set csverb
-"endif
+if has("cscope")
+    set csprg = gtags-cscope
+    set csto = 0     " cscope databases are searched first
+    set cst
+"    set nocsverb
+"    if filereadable("cscope.out")
+"        cs add cscope.out
+"    elseif $CSCOPE_DB != ""
+"        cs add $CSCOPE_DB
+"    endif
+"    set csverb
+endif
 
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
@@ -384,6 +385,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'leafo/moonscript-vim'
 Plug 'posva/vim-vue'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 filetype plugin indent on
@@ -421,3 +423,14 @@ let g:indentLine_setConceal = 0
 " tagbar
 let g:tagbar_width = 30
 map <silent> <F9> :TagbarToggle<cr>
+
+" vim-gutentags
+let g:gutentags_project_root = ['.root', '.git', '.hg', '.svn', '.project']
+let g:gutentags_modules = []
+"if executable('ctags')
+"    let g:gutentags_modules += ['ctags']
+"endif
+if executable('gtags-cscope') && executable('gtags')
+    let g:gutentags_modules += ['gtags-cscope']
+endif
+"let g:gutentags_auto_add_gtags_cscope = 0

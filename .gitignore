@@ -1,2 +1,8 @@
 *.pyc
 bundle
+
+tags
+
+GTAGS
+GRTAGS
+GPATH
