@@ -284,9 +284,10 @@ let c_syntax_for_h = 1
 " configure for cscope
 " :help cscope-suggestions
 if has("cscope")
-    set csprg = gtags-cscope
-    set csto = 0     " cscope databases are searched first
-    set cst
+    set cscopetagorder=0    " cscope databases are searched first
+    set cscopetag
+    set cscoperelative
+"    set cscopeprg=gtags-cscope
 "    set nocsverb
 "    if filereadable("cscope.out")
 "        cs add cscope.out
@@ -431,6 +432,6 @@ let g:gutentags_modules = []
 "    let g:gutentags_modules += ['ctags']
 "endif
 if executable('gtags-cscope') && executable('gtags')
-    let g:gutentags_modules += ['gtags-cscope']
+    let g:gutentags_modules += ['gtags_cscope']
 endif
 "let g:gutentags_auto_add_gtags_cscope = 0
