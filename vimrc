@@ -307,6 +307,14 @@ nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 
+" highlight on 80 column
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FF8080 guifg=black
+match OverLength /\%80v./
+"match OverLength /\%>80v.\+/
+"highlight ColorColumn ctermbg=darkred ctermfg=white guibg=#FF8080 guifg=black
+"set colorcolumn=80
+
+
 function! HasPaste()
     if &paste
         return 'PASTE MODE  '
