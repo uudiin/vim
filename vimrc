@@ -395,6 +395,7 @@ Plug 'majutsushi/tagbar'
 Plug 'leafo/moonscript-vim'
 Plug 'posva/vim-vue'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 filetype plugin indent on
