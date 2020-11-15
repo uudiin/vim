@@ -141,7 +141,7 @@ elseif has("mac") || has("macunix") || has("gui_mac")
     set guifont=Powerline\ Consolas:h15
 else
     set fileencoding=utf-8
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 15
     "set guifont=Consolas\ 11
 endif
 
@@ -396,6 +396,7 @@ Plug 'leafo/moonscript-vim'
 Plug 'posva/vim-vue'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 filetype plugin indent on
