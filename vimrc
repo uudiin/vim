@@ -396,7 +396,7 @@ Plug 'leafo/moonscript-vim'
 Plug 'posva/vim-vue'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 filetype plugin indent on
