@@ -138,7 +138,7 @@ if has("win32")
 elseif has("mac") || has("macunix") || has("gui_mac")
     set fileencoding=utf-8
     "set guifont=Source_Code_Pro_for_Powerline:h13
-    set guifont=Powerline\ Consolas:h24
+    set guifont=Powerline\ Consolas:h16
 else
     set fileencoding=utf-8
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 15
@@ -314,6 +314,8 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 highlight ColorColumn ctermbg=darkred ctermfg=white guibg=#393939
 set colorcolumn=80
 
+highlight Search ctermbg=darkred ctermfg=white guibg=#e040ef
+
 
 function! HasPaste()
     if &paste
@@ -386,7 +388,6 @@ Plug 'ervandew/supertab'
 Plug 'vim-scripts/DrawIt'
 Plug 'vim-scripts/a.vim'
 "Plug 'terryma/vim-multiple-cursors'
-"Plug 'majutsushi/tagbar'
 "Plug 'kana/vim-textobj-indent'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
@@ -418,6 +419,8 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Clean"     : "✔︎",
     \ "Unknown"   : "?"
     \ }
+
+let NERDTreeIgnore = ['\.o$', '\.lo$', '\.d$', '\.dylib$', '\.so$']
 
 " vim-indent-guides
 "let g:indent_guides_enable_on_vim_startup=1
