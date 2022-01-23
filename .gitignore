@@ -8,3 +8,5 @@ GRTAGS
 GPATH
 
 .DS_Store
+
+autoload/plug.vim.old
