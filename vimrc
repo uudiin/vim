@@ -272,7 +272,7 @@ imap <silent> <F10> <ESC>:NERDTreeToggle<cr>
 
 
 " configure for SuperTab
-let g:SuperTabRetainCompletionType = 2
+"let g:SuperTabRetainCompletionType = 2
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 
@@ -384,7 +384,7 @@ Plug 'mattn/emmet-vim'
 Plug 'tomasr/molokai'
 Plug 'ap/vim-css-color'
 Plug 'dimasg/vim-mark'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'vim-scripts/DrawIt'
 Plug 'vim-scripts/a.vim'
 "Plug 'terryma/vim-multiple-cursors'
