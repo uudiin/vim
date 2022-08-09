@@ -398,6 +398,7 @@ Plug 'posva/vim-vue'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rust-lang/rust.vim'
 "Plug 'jiangmiao/auto-pairs'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 filetype plugin indent on
