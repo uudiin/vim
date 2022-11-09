@@ -138,7 +138,8 @@ if has("win32")
 elseif has("mac") || has("macunix") || has("gui_mac")
     set fileencoding=utf-8
     "set guifont=Source_Code_Pro_for_Powerline:h13
-    set guifont=Powerline\ Consolas:h16
+    "set guifont=Powerline\ Consolas:h16
+    set guifont=Rec\ Mono\ Casual:h16
 else
     set fileencoding=utf-8
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 15
