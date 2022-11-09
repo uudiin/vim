@@ -142,8 +142,9 @@ elseif has("mac") || has("macunix") || has("gui_mac")
     set guifont=Rec\ Mono\ Casual:h16
 else
     set fileencoding=utf-8
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 15
     "set guifont=Consolas\ 11
+    "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 15
+    set guifont=Rec\ Mono\ Casual\ 15
 endif
 
 "language message zh_CN.UTF-8
