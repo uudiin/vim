@@ -379,8 +379,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mattn/emmet-vim'
 Plug 'tomasr/molokai'
@@ -425,6 +425,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 
 let NERDTreeIgnore = ['\.o$', '\.lo$', '\.d$', '\.dylib$', '\.so$']
+let NERDTreeIgnore += ['GPATH', 'GRTAGS', 'GTAGS']
 
 " vim-indent-guides
 "let g:indent_guides_enable_on_vim_startup=1
